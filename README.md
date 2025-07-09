@@ -20,7 +20,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  camera_connect: ^0.0.1
+  camera_connect: ^0.0.2
 ```
 
 ### Usage
@@ -29,24 +29,13 @@ dependencies:
 import 'package:camera_connect/camera_connect.dart';
 
 // Initialize camera connection
-final cameraConnect = CameraConnect();
 
-// Connect to camera
-await cameraConnect.connect(
-  deviceId: 'your_device_id',
-  username: 'admin',
-  password: 'password',
-);
-
-// Start video stream
-await cameraConnect.startVideoStream();
-
-// Stop video stream
-await cameraConnect.stopVideoStream();
-
-// Disconnect
-await cameraConnect.disconnect();
-```
+creationParams: {
+          'uuid': uuid,
+          'pass': pass,
+          'width': width,
+          'height': height,
+},
 
 ## Platform Support
 

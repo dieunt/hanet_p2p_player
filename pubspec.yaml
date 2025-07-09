@@ -1,17 +1,10 @@
 name: camera_connect
 description: "A Flutter plugin for connecting to IP cameras with TUTK IOTC support."
-version: 0.0.1
-homepage: https://github.com/YOUR_ACTUAL_USERNAME/camera_connect
-repository: https://github.com/YOUR_ACTUAL_USERNAME/camera_connect
-issue_tracker: https://github.com/YOUR_ACTUAL_USERNAME/camera_connect/issues
-documentation: https://github.com/YOUR_ACTUAL_USERNAME/camera_connect
-topics:
-  - camera
-  - ip-camera
-  - tutk
-  - iotc
-  - video-streaming
-  - flutter-plugin
+version: 0.0.2
+homepage: https://github.com/MrTuyennn/connect
+repository: https://github.com/MrTuyennn/connect
+issue_tracker: https://github.com/MrTuyennn/connect/issues
+documentation: https://github.com/MrTuyennn/connect
 
 environment:
   sdk: ^3.5.4
