@@ -20,7 +20,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  camera_connect: ^0.0.1
+  camera_connect: ^0.0.4
 ```
 
 ### Usage

@@ -9,42 +9,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        >
-        <Button
-            android:layout_width="0px"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="start"
-            android:id="@+id/startConnect"
-            android:layout_gravity="center_vertical"
-            />
-        <Button
-            android:layout_width="0px"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="Stop"
-            android:id="@+id/endConnect"
-            />
-
-        <Button
-            android:layout_width="0px"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="Back"
-            android:id="@+id/close"
-            />
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
