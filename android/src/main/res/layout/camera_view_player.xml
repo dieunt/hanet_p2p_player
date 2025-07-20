@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:id="@+id/playerParent"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:ignore="UselessParent">
+
+            <!-- Nội dung player -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/playerLin1"
+                android:background="#000000" />
+
+            <!-- Progress bar ở giữa -->
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/progress1"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/microphone"
+                android:tint="@android:color/white"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/icon_microphone"
+                android:src="@drawable/ic_microphone_mute"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="16dp" />
+
+            <ImageView
+                android:id="@+id/audio"
+                android:tint="@android:color/white"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/icon_audio"
+                android:src="@drawable/ic_volume_off"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

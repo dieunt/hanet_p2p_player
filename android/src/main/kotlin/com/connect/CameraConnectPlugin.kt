@@ -2,6 +2,7 @@ package com.connect
 
 import android.app.Activity
 import com.connect.module.native_view.CameraMultiFactory
+import com.connect.module.native_view.CameraPlayerFactory
 import com.connect.utils.AppConstant
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -23,6 +24,13 @@ class CameraConnectPlugin : FlutterPlugin, ActivityAware {
       .registerViewFactory(
         AppConstant.CHANNEL_CAMERA_MULTI,
         CameraMultiFactory(flutterPluginBinding.binaryMessenger, activity!!)
+      )
+
+    flutterPluginBinding
+      .platformViewRegistry
+      .registerViewFactory(
+        AppConstant.CHANNEL_CAMERA_PLAYER,
+        CameraPlayerFactory(flutterPluginBinding.binaryMessenger, activity!!)
       )
   }
 

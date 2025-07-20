@@ -1,3 +1,7 @@
+## 1.0.1
+- Implement camera player
+- Implement camera feature: audio && speak
+
 ## 0.0.5
 - Update ChangeLog
 ## 0.0.4

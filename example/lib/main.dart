@@ -1,8 +1,5 @@
+import 'package:camera_connect/camera_player.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
-import 'package:camera_connect/camera_connect.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +17,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: CameraConnect(
+        body: CameraPlayer(
           uuid: 'H23R9K94ZULVDVCF111A',
-          pass: 'INcFwR',
+          pass: 'Js2nvQ',
           height: 700,
           width: 1000,
         ),

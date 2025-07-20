@@ -44,13 +44,16 @@ public class PlayerAction {
     public boolean isStartRead = false;
     private static final int VIDEO_BUF_SIZE = 5 * 1024 * 1024;
     private static final int FRAME_INFO_SIZE = 16;
-    private DeviceBean deviceBean;
+    public static final int MAINSTREAM = 0 ;
     public static final int SUBSTREAM = 1;
-    public int decodeType = NativeMediaPlayer.HARDDECODE;
+    public static final int DEFAULTFRAMES = 50;
+    private DeviceBean deviceBean ;
+    public int decodeType = NativeMediaPlayer.HARDDECODE ;
 
     private AVAPIs av = null;
     private int avIndex = -1;
     private boolean audioOpen = false;
+
     // 音频解码器
     private AACDecoderUtil audioUtil;
     private int connectChannel = 0;

@@ -4,32 +4,75 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 
 import com.connect.module.module.action.PlayerAction;
-import com.connect.module.module.action.PlayerActions;
 import com.xc.hdscreen.view.GLPlayView;
 
-public class DeviceBean {
+import java.io.Serializable;
 
-    public String deviceUid;
+public class DeviceBean implements Serializable {
 
-    public String deviceName;
+    public String deviceUid ;
 
-    public String devicePwd;
+    public String deviceName ;
 
-    public int playerId;
+    public String devicePwd ;
 
-    public GLPlayView glPlayView;
+    public int playerId ;
 
-    public PlayerAction playerAction;
+    public GLPlayView glPlayView ;
 
-    public PlayerActions playerActions;
+    public PlayerAction playerAction ;
 
-    public MediaCodec mediaCodec;
+    // public MuiltPlayAction muiltPlayAction;
+
+    public MediaCodec mediaCodec ;
 
     public MediaFormat mediaFormat;
 
     public boolean isDecode = false;
 
+    public int sid =-1;
+
+    public int avIndex = -1;
+
     public PlayerViewBean playerViewBeans;
+
+    public int channelId;
+
+    public boolean isOverById=false; //是否执行完IOTC_Connect_ByUID_Parallel
+
+    public int retryTimes = 2;
+
+    public int getRetryTimes() {
+        return retryTimes;
+    }
+
+    public void setRetryTimes(int retryTimes) {
+        this.retryTimes = retryTimes;
+    }
+
+//    public MuiltPlayAction getMuiltPlayAction() {
+//        return muiltPlayAction;
+//    }
+//
+//    public void setMuiltPlayAction(MuiltPlayAction muiltPlayAction) {
+//        this.muiltPlayAction = muiltPlayAction;
+//    }
+
+    public boolean isOverById() {
+        return isOverById;
+    }
+
+    public void setOverById(boolean overById) {
+        isOverById = overById;
+    }
+
+    public int getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(int channelId) {
+        this.channelId = channelId;
+    }
 
     public PlayerViewBean getPlayerViewBeans() {
         return playerViewBeans;
@@ -71,14 +114,6 @@ public class DeviceBean {
         this.playerAction = playerAction;
     }
 
-    public PlayerActions getPlayerActions() {
-        return playerActions;
-    }
-
-    public void setPlayerActions(PlayerActions playerActions) {
-        this.playerActions = playerActions;
-    }
-
     public GLPlayView getGlPlayView() {
         return glPlayView;
     }
@@ -117,5 +152,21 @@ public class DeviceBean {
 
     public void setDevicePwd(String devicePwd) {
         this.devicePwd = devicePwd;
+    }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public int getAvIndex() {
+        return avIndex;
+    }
+
+    public void setAvIndex(int avIndex) {
+        this.avIndex = avIndex;
     }
 }
