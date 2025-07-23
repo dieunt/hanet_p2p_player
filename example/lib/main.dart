@@ -22,6 +22,9 @@ class _MyAppState extends State<MyApp> {
           pass: 'Js2nvQ',
           height: 700,
           width: 1000,
+          mic: 1,
+          sound: 1,
+          type: 0,
         ),
       ),
     );

@@ -20,7 +20,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  camera_connect: ^1.0.1
+  camera_connect: ^1.0.2
 ```
 
 ### Usage
@@ -34,6 +34,9 @@ creationParams: {
           'pass': pass,
           'width': width,
           'height': height,
+          'mic': 1,
+          'sound': 1,
+          'type': 0,
         },
 ```
 

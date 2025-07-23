@@ -1,3 +1,7 @@
+## 1.0.2
+- Implement feature hide/show mic or sound
+- Implement switch mic && sound with camera type
+
 ## 1.0.1
 - Implement camera player
 - Implement camera feature: audio && speak

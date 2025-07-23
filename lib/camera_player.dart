@@ -10,12 +10,18 @@ class CameraPlayer extends StatelessWidget {
     required this.pass,
     this.width = 1280,
     this.height = 720,
+    this.mic = 1,
+    this.sound = 1,
+    this.type = 0,
   });
 
   final String uuid;
   final String pass;
   final int width;
   final int height;
+  final int mic;
+  final int sound;
+  final int type;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +33,9 @@ class CameraPlayer extends StatelessWidget {
           'pass': pass,
           'width': width,
           'height': height,
+          'mic': mic,
+          'sound': sound,
+          'type': type,
         },
         creationParamsCodec: const StandardMessageCodec(),
       );

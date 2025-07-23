@@ -36,6 +36,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -61,17 +62,21 @@ public class CameraPlayerWidget implements PlatformView, MethodChannel.MethodCal
 
     private NativeMediaPlayer nativeMediaPlayer;
     private int currentPlayers = 0 ;//标记当前选哪个播放器 控制音频
+    // dành cho audio
     private int audioSample = 48000; //device audio samplerate
     private int audioEncodeType = 1;// 1:AAC 2:pcm
 
+    private int audioChannel = 2; //1：单通道 2：双通道
+    // audioSample,audioEncodeType,audioChannel
+    // dành cho audio
+
+    // dành cho speak
     private int intercomSample = 48000;//intercom sampleRate
     private int intercomEncode = 1;// 1:AAC 2:pcm
-
-    private int audioChannel = 2; //1：单通道 2：双通道
     private int intercomChannel  = 2; //1:单通道 2：双通道
-
-    private String UID = "";
-    private String PWD = "";
+    // dành cho speak
+    private String UID = "",PWD = "";
+    private int mic,sound,type ; // mic && sound -- 1: hiện, 0 ẩn // type camera: 0 camera thường - 1 là camera HOME
 
     private int screenWidth = 0, screenHeight = 0;
 
@@ -93,6 +98,15 @@ public class CameraPlayerWidget implements PlatformView, MethodChannel.MethodCal
             }
             if (creationParams.containsKey("pass")) {
                 PWD = (String) creationParams.get("pass");
+            }
+            if(creationParams.containsKey("mic")){
+                mic = ((Number) Objects.requireNonNull(creationParams.get("mic"))).intValue();
+            }
+            if(creationParams.containsKey("sound")){
+                sound = ((Number) Objects.requireNonNull(creationParams.get("sound"))).intValue();
+            }
+            if(creationParams.containsKey("type")){
+                type = ((Number) Objects.requireNonNull(creationParams.get("type"))).intValue();
             }
             if (creationParams.containsKey("width")) {
                 screenWidth = ((Number) creationParams.get("width")).intValue();
@@ -139,6 +153,10 @@ public class CameraPlayerWidget implements PlatformView, MethodChannel.MethodCal
         ic_microphone = rootView.findViewById(R.id.microphone);
         ic_audio = rootView.findViewById(R.id.audio);
         nativeMediaPlayer = new NativeMediaPlayer();
+
+        // xử lý ẩn hiện theo params
+        ic_microphone.setVisibility(mic == 1 ? View.VISIBLE : View.INVISIBLE);
+        ic_audio.setVisibility(sound == 1 ? View.VISIBLE : View.INVISIBLE);
 
         // set layout cho camera
         if (screenHeight > 0 || screenWidth > 0) {
@@ -221,7 +239,7 @@ public class CameraPlayerWidget implements PlatformView, MethodChannel.MethodCal
             @Override
             public void run() {
                 //用子线程调用
-                players.get(currentPlayers).getPlayerAction().startAudioStream(audioSample,audioEncodeType,audioChannel);
+                players.get(currentPlayers).getPlayerAction().startAudioStream(audioSample,type == 0 ? 1 : 2,type == 0 ? 2 : 1);
             }
         }).start();
     }
@@ -237,7 +255,7 @@ public class CameraPlayerWidget implements PlatformView, MethodChannel.MethodCal
     }
 
     private void openSpeak() {
-        boolean resul = players.get(currentPlayers).getPlayerAction().startRecord(intercomSample,intercomEncode,intercomChannel);
+        boolean resul = players.get(currentPlayers).getPlayerAction().startRecord(intercomSample,type == 0 ? 1 : 2,type == 0 ? 2 : 1);
         if(resul){
             new Thread(new Runnable() {
                 @Override
